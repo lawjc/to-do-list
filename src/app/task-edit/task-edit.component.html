@@ -1,39 +1,41 @@
-<mat-card>
-  <form #taskForm="ngForm" (ngSubmit)="save(taskForm.value)">
-    <mat-card-header>
-      <mat-card-title><h2>{{task.name ? 'Edit' : 'Add'}} Task</h2></mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="example-container">
-        <input type="hidden" name="href" [(ngModel)]="task.href">
-        <mat-form-field>
-          <input matInput placeholder="Task Name" [(ngModel)]="task.name" required name="name" #name>
-        </mat-form-field>
+<div class="form-block">
+  <mat-card>
+    <form #taskForm="ngForm" (ngSubmit)="save(taskForm.value)">
+      <mat-card-header>
+        <mat-card-title><h2>{{task.name ? 'Edit' : 'Add'}} Task</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="example-container">
+          <input type="hidden" name="href" [(ngModel)]="task.href">
+          <mat-form-field>
+            <input matInput placeholder="Task Name" [(ngModel)]="task.name" required name="name" #name>
+          </mat-form-field>
 
-        <mat-form-field>
-          <textarea matInput placeholder="Description" [(ngModel)]="task.description" required name="description" #description></textarea>
-        </mat-form-field>
+          <mat-form-field>
+            <textarea matInput placeholder="Description" [(ngModel)]="task.description" required name="description" #description></textarea>
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-select placeholder="Status" [(ngModel)]="task.status" required name="status" #status>
-            <mat-option value="Not Started">Not Started</mat-option>
-            <mat-option value="In Progress">In Progress</mat-option>
-            <mat-option value="Completed">Completed</mat-option>
-          </mat-select>
-        </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Status" [(ngModel)]="task.status" required name="status" #status>
+              <mat-option value="Not Started">Not Started</mat-option>
+              <mat-option value="In Progress">In Progress</mat-option>
+              <mat-option value="Completed">Completed</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Last Updated" [(ngModel)]="task.updatedDate" name="updatedDate" readonly #updatedDate>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit"
-              [disabled]="!taskForm.form.valid">Save</button>
-      <button mat-raised-button color="secondary" (click)="remove(task.href)"
-              *ngIf="task.href" type="button">Delete</button>
-      <a mat-button routerLink="/task-list">Cancel</a>
-    </mat-card-actions>
-  </form>
-</mat-card>
+          <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Last Updated" [(ngModel)]="task.updatedDate" name="updatedDate" readonly #updatedDate>
+              <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="!taskForm.form.valid">Save</button>
+        <button mat-raised-button color="secondary" (click)="remove(task.href)"
+                *ngIf="task.href" type="button">Delete</button>
+        <a mat-button routerLink="/task-list">Cancel</a>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

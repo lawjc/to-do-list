@@ -1,8 +1,21 @@
 .example-container {
-  display: flex;
-  flex-direction: column;
+  	display: flex;
+  	flex-direction: column;
+
 }
 
-.example-container > * {
-  width: 20%;
+.example-container > * {	
+  	width: 50%;
 }
+
+.form-block {
+	background: #424242;
+	height: 100%;
+	position: fixed;
+	width: 100%;
+}
+
+.mat-card {
+	box-shadow: none !important;
+}
+

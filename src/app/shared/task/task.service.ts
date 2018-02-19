@@ -5,14 +5,14 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class TaskService {
 
-	public API = '//localhost:8080';
+	public API = 'https://www.api.ssjdev.com/api/';
 	public TASK_API = this.API + '/tasks';
 
 	constructor(private http: HttpClient) {
 	}
 
 	getAll(): Observable<any> {
-	  return this.http.get(this.TASK_API);
+	  return this.http.get('https://www.api.ssjdev.com/tasks');
 	}
 
 	get(id: string){

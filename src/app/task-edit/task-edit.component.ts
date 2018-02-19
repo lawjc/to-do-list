@@ -25,7 +25,7 @@ export class TaskEditComponent implements OnInit, OnDestroy {
   				this.taskService.get(id).subscribe((task: any) =>{
   					if (task) {
   						this.task = task;
-  						this.task.href = '//localhost:8080/tasks/' + id;
+              this.task.href = task._links.self.href;
               this.task.updatedDate = new Date(task.updatedDate);
   					}
   					else {
